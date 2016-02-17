@@ -33,7 +33,7 @@ public class WebAppInitializer implements WebApplicationInitializer {
         AnnotationConfigWebApplicationContext dispatcherServlet = new AnnotationConfigWebApplicationContext();
         dispatcherServlet.register(MvcConfig.class);
 
-// Register and map the dispatcher servlet
+        // Register and map the dispatcher servlet
         ServletRegistration.Dynamic dispatcher = cs.addServlet("dispatcher", new DispatcherServlet(dispatcherServlet));
         dispatcher.setLoadOnStartup(1);
         dispatcher.addMapping("/");
