@@ -8,6 +8,7 @@ package com.mycompany.spring2explore.restcontroller;
 import com.mycompany.spring2explore.entities.MPerson;
 import com.mycompany.spring2explore.services.PersonService;
 import java.util.List;
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +33,7 @@ public class PersonRestcontroller {
         return listPersons;
     }
 
-    @RequestMapping(value = "/rest/get-one-person", method = RequestMethod.GET, headers = {"Accept=application/json"})
+    @RequestMapping(value = "/rest/get-one-person", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public MPerson getPerson() {
         MPerson mPerson = new MPerson();
         mPerson.setId(23);
@@ -41,4 +42,9 @@ public class PersonRestcontroller {
         System.out.println("mPerson : " + mPerson);
         return mPerson;
     }
+    @RequestMapping(value = "/rest/get-datetime", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public DateTime getDateTime(){
+        return DateTime.now();
+    }
+    
 }
