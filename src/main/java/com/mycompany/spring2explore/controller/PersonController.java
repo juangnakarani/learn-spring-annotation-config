@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *
  * @author juang
  */
+//@RestController()
 @Controller
 @RequestMapping("login")
 public class PersonController {
@@ -38,4 +39,6 @@ public class PersonController {
 
         return "login";
     }
+
+
 }
